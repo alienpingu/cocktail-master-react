@@ -1,6 +1,8 @@
 import React,{useEffect, useState} from "react"
-import { CardContainer } from "../Components"
 import {createUseStyles} from 'react-jss'
+
+import { CardContainer } from "../Components"
+import { getCocktailsFromSearch } from "../utils"
 
 const useStyles = createUseStyles({
     searchInput: {
@@ -30,6 +32,11 @@ export default function Home(props) {
         setCocktails(temp)
     },[])
 
+    let updateCocktail = async function (search) {
+        
+        setCocktails(await getCocktailsFromSearch(search))
+    }
+
 
     return(<div id="home" className="container">
             <h1>Delicius cocktails<br/>for you</h1>
@@ -45,7 +52,7 @@ export default function Home(props) {
                 />
                 <button 
                     className={`button icon-only `+ classes.searchButton}
-                    onClick={e => console.log(search)}
+                    onClick={e => updateCocktail(search)}
                 >
                     <img 
                         src="https://icongr.am/feather/search.svg?size=16" 
