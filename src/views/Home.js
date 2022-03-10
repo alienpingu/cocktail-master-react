@@ -1,5 +1,4 @@
 import React,{useEffect, useState} from "react"
-import { getCocktailsFromSearch } from "../utils"
 import { CardContainer } from "../Components"
 import {createUseStyles} from 'react-jss'
 
@@ -16,7 +15,7 @@ const useStyles = createUseStyles({
 
 export default function Home(props) {
     let [cocktails, setCocktails] = useState([]);
-    let [search, setSearch] = useState()
+    let [search, setSearch] = useState('')
     const classes = useStyles();
 
     useEffect(() => {
@@ -30,11 +29,6 @@ export default function Home(props) {
         }
         setCocktails(temp)
     },[])
-    
-    let renderCocktails = () => {
-        let r = getCocktailsFromSearch(search)
-        console.log(r)
-    }
 
 
     return(<div id="home" className="container">
@@ -45,12 +39,13 @@ export default function Home(props) {
                     name="search_home"
                     id="search_home"
                     placeholder="Search"
+                    value={search}
                     onChange={(e) => setSearch(e.target.value)}
                     className={classes.searchInput}
                 />
                 <button 
                     className={`button icon-only `+ classes.searchButton}
-                    onClick={e => renderCocktails()}
+                    onClick={e => console.log(search)}
                 >
                     <img 
                         src="https://icongr.am/feather/search.svg?size=16" 
