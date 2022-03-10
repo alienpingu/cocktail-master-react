@@ -1,11 +1,16 @@
+import React, {useState, useEffect} from "react";
+
 import { Link } from "react-router-dom";
 
 import {createUseStyles} from 'react-jss'
+
+
 
 const useStyles = createUseStyles({
     cardCocktail: {
         width: '100%',
         borderRadius: '3rem',
+
     },
     fotoCocktail: {
         width: '100%',
@@ -15,57 +20,28 @@ const useStyles = createUseStyles({
         marginTop: '-64px',
         color: '#fff',
         textAlign: 'center',
-        textTransform: 'capitalize'
+        textTransform: 'capitalize',
     },
 
   })
 
 export default function CardContainer(props) {
-    var cocktails = [
-        {
-            name: 'mojito',
-            img: 'https://picsum.photos/200/200',
-            id: '00'
-        },
-        {
-            name: 'margarita',
-            img: 'https://picsum.photos/200/200',
-            id: '01'
-        },
-        {
-            name: 'kiev mule',
-            img: 'https://picsum.photos/200/200',
-            id: '02'
-        },
-        {
-            name: 'mojito',
-            img: 'https://picsum.photos/200/200',
-            id: '00'
-        },
-        {
-            name: 'margarita',
-            img: 'https://picsum.photos/200/200',
-            id: '01'
-        },
-        {
-            name: 'kiev mule',
-            img: 'https://picsum.photos/200/200',
-            id: '02'
-        },
-      ]; 
-
-    return(<div className="row card-container">
-        {cocktails.map((cocktail, index) => <div key={index} className="col-4 is-horizontal-align"><CardCocktail cocktail={cocktail}/></div>)}
-    </div>)
-}
+        
+        return(
+        <div className="row">
+            {
+                props.cocktails.map((element, index) => <div className="col-4"  key={index}><CardCocktail cocktail={element} /></div>)
+            }
+        </div>)
+    }
 
 function CardCocktail(props) {
-    let {id, name, img} = props.cocktail;
+    let {idDrink, strDrink, strDrinkThumb} = props.cocktail;
     const classes = useStyles()
 
     return(
-    <Link to={"/cocktail/"+id} className={classes.cardCocktail}>
-        <img src={img} alt="foto-cocktail" className={classes.fotoCocktail}/>
-        <h2 className={classes.textCocktail}>{name}</h2>
+    <Link to={"/cocktail/"+idDrink} className={classes.cardCocktail}>
+        <img src={strDrinkThumb} alt="foto-cocktail" className={classes.fotoCocktail}/>
+        <h2 className={classes.textCocktail}>{strDrink}</h2>
     </Link>)
 }
