@@ -1,4 +1,24 @@
+import { Link } from "react-router-dom";
 
+import {createUseStyles} from 'react-jss'
+
+const useStyles = createUseStyles({
+    cardCocktail: {
+        width: '100%',
+        borderRadius: '3rem',
+    },
+    fotoCocktail: {
+        width: '100%',
+        borderRadius: '3rem',
+    },
+    textCocktail: {
+        marginTop: '-64px',
+        color: '#fff',
+        textAlign: 'center',
+        textTransform: 'capitalize'
+    },
+
+  })
 
 export default function CardContainer(props) {
     var cocktails = [
@@ -41,10 +61,11 @@ export default function CardContainer(props) {
 
 function CardCocktail(props) {
     let {id, name, img} = props.cocktail;
+    const classes = useStyles()
+
     return(
-    <div className="card-cocktail is-full-width">
-        <img src={img} alt="foto-cocktail" className="is-full-width"/>
-        <h2>{name}</h2>
-        <p className="button">more info {id}</p>
-    </div>)
+    <Link to={"/cocktail/"+id} className={classes.cardCocktail}>
+        <img src={img} alt="foto-cocktail" className={classes.fotoCocktail}/>
+        <h2 className={classes.textCocktail}>{name}</h2>
+    </Link>)
 }

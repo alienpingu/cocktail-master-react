@@ -1,14 +1,16 @@
 import React from "react";
+// React router dom 
 import { Routes, Route, Outlet, Link } from "react-router-dom";
 // Views
 import {Home} from './views';
+// Styles
 import 'chota';
+
 
 
 export default function App() {
   const setLight = () => document.body.classList.remove('dark');
   const setDark = () => document.body.classList.add('dark');
-
 
   return (
     <div>
@@ -54,6 +56,7 @@ function Layout(props) {
     </div>
   );
 }
+
 
 
 function Search() {
