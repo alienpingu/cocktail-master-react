@@ -6,9 +6,9 @@ export default function getRandomCocktails() {
         for (let i = 0; i < n; i++) {
            let tempId = getRandomNumberBetween(0,60);
            let id = (tempId < 10) ? `${lookupRequestUrl}1100${tempId}` : `${lookupRequestUrl}110${tempId}`
-           arrayOfIdForRequest.push(id)
+           arrayOfIdForRequest.push(id);
         }
     }
-    populateArrayWithRandomId(5)
+    populateArrayWithRandomId(5);
     return arrayOfIdForRequest;
 }

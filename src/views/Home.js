@@ -1,6 +1,7 @@
 import React from "react"
 
 import { getRandomCocktails } from "../utils"
+import { CardContainer } from "../Components"
 
 export default function Home(props) {
     return(<div id="home" className="container">
@@ -15,5 +16,6 @@ export default function Home(props) {
                     />
                 </button>
             </p>
+            <CardContainer />
     </div>)
 }
