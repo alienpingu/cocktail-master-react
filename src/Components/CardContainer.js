@@ -40,7 +40,11 @@ function CardCocktail(props) {
     const classes = useStyles()
 
     return(
-    <Link to={"/cocktail/"+idDrink} className={classes.cardCocktail}>
+    <Link 
+        to={"/cocktail/"+idDrink} 
+        className={classes.cardCocktail}
+        data-aos="fade-left"
+    >
         <img src={strDrinkThumb} alt="foto-cocktail" className={classes.fotoCocktail}/>
         <h2 className={classes.textCocktail}>{strDrink}</h2>
     </Link>)

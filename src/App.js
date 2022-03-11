@@ -8,6 +8,7 @@ import 'chota';
 
 
 
+
 export default function App() {
   const setLight = () => document.body.classList.remove('dark');
   const setDark = () => document.body.classList.add('dark');
@@ -35,12 +36,11 @@ function Layout(props) {
       {/* A "layout route" is a good place to put markup you want to
           share across all the pages on your site, like navigation. */}
       <nav className="nav">
-        <div className="nav-center">
-          <Link to="/">Matail</Link>
+        <div className="nav-left">
+          <Link to="/" className="brand">Master Cocktail</Link>
         </div>
       </nav>
-
-      <hr />
+      <br />
 
       {/* An <Outlet> renders whatever child route is currently active,
           so you can think about this <Outlet> as a placeholder for
