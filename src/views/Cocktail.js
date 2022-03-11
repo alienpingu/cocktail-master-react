@@ -16,7 +16,7 @@ export default function Cocktail(props) {
             // expected output: "Success!"
           });
 
-    },[])
+    },[idDrink])
 
     return(<>
         {(cocktailJson) ? `Cocktail id: ${cocktailJson.strDrink}` : 'loading'}

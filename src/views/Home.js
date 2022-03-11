@@ -2,7 +2,7 @@ import React,{useEffect, useState} from "react"
 import {createUseStyles} from 'react-jss'
 
 import { CardContainer } from "../Components"
-import { getCocktailsFromSearch } from "../utils"
+import { getCocktailsFromSearch, getRandomCocktails } from "../utils"
 
 const useStyles = createUseStyles({
     searchInput: {
@@ -21,19 +21,18 @@ export default function Home(props) {
     const classes = useStyles();
 
     useEffect(() => {
-        let temp = []
-        for (let index = 0; index < 9; index++) {
-            temp.push({
-                idDrink: '000',
-                strDrink: 'Name of Drink',
-                strDrinkThumb: 'https://picsum.photos/200/300'
-            }) 
-        }
-        setCocktails(temp)
+        let promise1 = new Promise((resolve, reject) => {
+            resolve(getRandomCocktails())
+          });
+          
+          promise1.then((value) => {
+            setCocktails(value)
+            // expected output: "Success!"
+          });
+
     },[])
 
     let updateCocktail = async function (search) {
-        
         setCocktails(await getCocktailsFromSearch(search))
     }
 
