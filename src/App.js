@@ -2,7 +2,10 @@ import React from "react";
 // React router dom 
 import { Routes, Route, Outlet, Link } from "react-router-dom";
 // Views
-import {Home, Cocktail} from './views';
+import {Home, Cocktail, Ingredients} from './views';
+// Components
+import { Navbar } from "./Components";
+import Logo from './assets/logo.png';
 // Styles
 import 'chota';
 
@@ -19,6 +22,7 @@ export default function App() {
         <Route path="/" element={<Layout setLight={setLight} setDark={setDark}/>}>
           <Route index element={<Home />} />
           <Route path="/cocktail/:idDrink" element={<Cocktail />} />
+          <Route path="/i" element={<Ingredients />} />
 
           {/* Using path="*"" means "match anything", so this route
                 acts like a catch-all for URLs that we don't have explicit
@@ -36,10 +40,11 @@ function Layout(props) {
       {/* A "layout route" is a good place to put markup you want to
           share across all the pages on your site, like navigation. */}
       <nav className="nav">
-        <div className="nav-left">
-          <Link to="/" className="brand">Master Cocktail</Link>
+        <div className="nav-center">
+          <Link to="/" className="brand"><img src={Logo} alt="matail" /></Link>
         </div>
       </nav>
+      <Navbar />
       <br />
 
       {/* An <Outlet> renders whatever child route is currently active,
