@@ -45,7 +45,7 @@ function CardCocktail(props) {
         className={classes.cardCocktail}
         data-aos="fade-left"
     >
-        <img src={strDrinkThumb} alt="foto-cocktail" className={classes.fotoCocktail}/>
+        <img src={`${strDrinkThumb}/preview`} alt="foto-cocktail" className={classes.fotoCocktail}/>
         <h2 className={classes.textCocktail}>{strDrink}</h2>
     </Link>)
 }
