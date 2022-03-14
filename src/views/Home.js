@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from "react";
 import {createUseStyles} from 'react-jss';
 
-import { CardContainer } from "../Components";
+import { CardContainer, LoadingSpinner } from "../Components";
 import { getCocktailsFromSearch, getRandomCocktails } from "../utils";
 
 const useStyles = createUseStyles({
@@ -22,8 +22,8 @@ const useStyles = createUseStyles({
 
 
 export default function Home(props) {
-    let [cocktails, setCocktails] = useState([]);
-    let [search, setSearch] = useState('')
+    let [cocktails, setCocktails] = useState();
+    let [search, setSearch] = useState()
     const classes = useStyles();
 
     useEffect(() => {
@@ -65,6 +65,6 @@ export default function Home(props) {
                     />
                 </button>
             </p>
-            {(cocktails) ? <CardContainer cocktails={cocktails} /> : 'loading'}
+            {(cocktails) ? <CardContainer cocktails={cocktails} /> : <LoadingSpinner />}
     </div>)
 }

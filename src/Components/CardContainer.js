@@ -10,6 +10,7 @@ const useStyles = createUseStyles({
     cardCocktail: {
         width: '100%',
         borderRadius: '3rem',
+        animation: 'fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.25s both'
 
     },
     fotoCocktail: {
@@ -22,6 +23,10 @@ const useStyles = createUseStyles({
         textAlign: 'center',
         textTransform: 'capitalize',
     },
+    '@keyframes slideRight': {
+        from: {opacity: 0},
+        to: {opacity: 1}
+      },
 
   })
 

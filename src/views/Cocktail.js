@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
 import {createUseStyles} from 'react-jss'
 
+import { LoadingSpinner } from "../Components";
 import { getCocktailById } from "../utils";
 
 const useStyles = createUseStyles({
@@ -29,7 +30,7 @@ export default function Cocktail(props) {
     
     return(<>
       
-      {(cocktailJson) ? <CockatailPage cocktailJson={cocktailJson}/> : 'loading'}
+      {(cocktailJson) ? <CockatailPage cocktailJson={cocktailJson}/> : <LoadingSpinner />}
 
     </>)
 }
