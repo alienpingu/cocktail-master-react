@@ -10,7 +10,15 @@ export default function ButtonContainer(props) {
             {
                 ingredientsList.map((e, i) => {
                     if (e.strIngredient1.split(' ').length < 2) {
-                        return(<div key={i} className="col-3"><Link className='button is-full-width text-center'to={`/i/${e.strIngredient1.replace(' ', '%20')}`}>{e.strIngredient1}</Link></div>)
+                        return(
+                            <div key={i} className="col-3">
+                                <Link 
+                                    className='button is-full-width text-center'
+                                    to={`/i/${e.strIngredient1}`}>
+                                        {e.strIngredient1}
+                                </Link>
+                            </div>
+                        )
                     } else {
                         return(null)
                     }

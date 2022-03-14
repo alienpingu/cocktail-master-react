@@ -23,7 +23,7 @@ const useStyles = createUseStyles({
 
 export default function Home(props) {
     let [cocktails, setCocktails] = useState();
-    let [search, setSearch] = useState()
+    let [search, setSearch] = useState(String)
     const classes = useStyles();
 
     useEffect(() => {

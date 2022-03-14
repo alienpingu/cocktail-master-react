@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Link } from "react-router-dom";
-
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import {createUseStyles} from 'react-jss'
 
 
@@ -10,7 +10,11 @@ const useStyles = createUseStyles({
     cardCocktail: {
         width: '100%',
         borderRadius: '3rem',
-        animation: 'fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.25s both'
+        // animation: 'fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.25s both',
+        animationName: '$fadeIn',
+        animationDuration: '0.5s',
+        animationTimingFunction: 'ease-in-out',
+        animationFillMode: 'both' 
 
     },
     fotoCocktail: {
@@ -22,8 +26,10 @@ const useStyles = createUseStyles({
         color: '#fff',
         textAlign: 'center',
         textTransform: 'capitalize',
+        position: 'relative'
+
     },
-    '@keyframes slideRight': {
+    '@keyframes fadeIn': {
         from: {opacity: 0},
         to: {opacity: 1}
       },
@@ -50,7 +56,14 @@ function CardCocktail(props) {
         className={classes.cardCocktail}
         data-aos="fade-left"
     >
-        <img src={`${strDrinkThumb}/preview`} alt="foto-cocktail" className={classes.fotoCocktail}/>
+         <LazyLoadImage
+            alt={"foto-cocktail"}
+            height={'auto'}
+            src={`${strDrinkThumb}/preview`} // use normal <img> attributes as props
+            width={'100%'}
+            className={classes.fotoCocktail}
+        />
+            
         <h2 className={classes.textCocktail}>{strDrink}</h2>
     </Link>)
 }
