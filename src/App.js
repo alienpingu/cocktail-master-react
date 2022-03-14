@@ -23,6 +23,7 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="/cocktail/:idDrink" element={<Cocktail />} />
           <Route path="/i" element={<Ingredients />} />
+          <Route path="/i/:nameIngredient" element={<Ingredients />} />
 
           {/* Using path="*"" means "match anything", so this route
                 acts like a catch-all for URLs that we don't have explicit
