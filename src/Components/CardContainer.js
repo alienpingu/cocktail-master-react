@@ -59,7 +59,7 @@ function CardCocktail(props) {
          <LazyLoadImage
             alt={"foto-cocktail"}
             height={'auto'}
-            src={`${strDrinkThumb}/preview`} // use normal <img> attributes as props
+            src={`${strDrinkThumb}`} // use normal <img> attributes as props
             width={'100%'}
             className={classes.fotoCocktail}
         />
