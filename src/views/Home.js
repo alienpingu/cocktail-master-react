@@ -42,13 +42,12 @@ export default function Home(props) {
           });
 
     },[])
-
+    //From the value of the searchbar find cocktails by name and ingredients, concat without duplicates and render
     let updateCocktail = async function (search) {
         let fromSearch = await getCocktailsFromSearch(search)
         let fromIngredient = await getCocktailByIngredient(search)
         let cocktailsFromSearch = fromSearch.concat(fromIngredient);
         cocktailsFromSearch = [...new Set([...fromSearch,...fromIngredient])]
-        console.log(cocktailsFromSearch)
         setCocktails(cocktailsFromSearch)
     }
 

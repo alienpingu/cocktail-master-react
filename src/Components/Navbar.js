@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 
 import { Link , useLocation} from "react-router-dom";
 
@@ -44,8 +44,35 @@ export default function Navbar(props) {
         const classes = useStyles();
         let location = useLocation();
         
+        const [show, setShow] = useState(true);
+        const [lastScrollY, setLastScrollY] = useState(0);
+      
+        const controlNavbar = () => {
+          if (typeof window !== 'undefined') { 
+            if (window.scrollY > lastScrollY) { // if scroll down hide the navbar
+              setShow(false); 
+            } else { // if scroll up show the navbar
+              setShow(true);  
+            }
+      
+            // remember current page location to use in the next move
+            setLastScrollY(window.scrollY); 
+          }
+        };
+      
+        useEffect(() => {
+          if (typeof window !== 'undefined') {
+            window.addEventListener('scroll', controlNavbar);
+      
+            // cleanup function
+            return () => {
+              window.removeEventListener('scroll', controlNavbar);
+            };
+          }
+        });
+
         return(
-        <div id="navbar" className={classes.navbarContainer}>
+        <div id="navbar" className={`${classes.navbarContainer} ${(show) ? '' : 'is-hidden'}` }>
             <Link to="/"> 
                 <img 
                     src={`https://icongr.am/feather/search.svg?size=32&color=${(location.pathname === '/') ? 'ff4b1f' : '6F7173'}`} 
