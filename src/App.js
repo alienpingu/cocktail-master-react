@@ -4,8 +4,7 @@ import { Routes, Route, Outlet, Link } from "react-router-dom";
 // Views
 import {Home, Cocktail, Ingredients} from './views';
 // Components
-import { Navbar } from "./Components";
-import Logo from './assets/logo.png';
+import { Navbar, Topbar } from "./Components";
 // Styles
 import 'chota';
 
@@ -13,13 +12,11 @@ import 'chota';
 
 
 export default function App() {
-  const setLight = () => document.body.classList.remove('dark');
-  const setDark = () => document.body.classList.add('dark');
-
+  
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Layout setLight={setLight} setDark={setDark}/>}>
+        <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/cocktail/:idDrink" element={<Cocktail />} />
           <Route path="/i" element={<Ingredients />} />
@@ -36,15 +33,17 @@ export default function App() {
 }
 
 function Layout(props) {
+
   return (
     <div>
       {/* A "layout route" is a good place to put markup you want to
           share across all the pages on your site, like navigation. */}
-      <nav className="nav">
+      {/* <nav className="nav">
         <div className="nav-center">
           <Link to="/" className="brand"><img src={Logo} alt="matail" /></Link>
         </div>
-      </nav>
+      </nav> */}
+      <Topbar/>
       <Navbar />
       <br />
 

@@ -6,6 +6,9 @@ import { LoadingSpinner } from "../Components";
 import { getCocktailById } from "../utils";
 
 const useStyles = createUseStyles({
+  wrapper: {
+    marginTop: '3rem'
+  },
   drinkThumb: {
     borderRadius: '3rem'
   }
@@ -28,11 +31,11 @@ export default function Cocktail(props) {
 
     },[idDrink])
     
-    return(<>
+    return(<div>
       
       {(cocktailJson) ? <CockatailPage cocktailJson={cocktailJson}/> : <LoadingSpinner />}
 
-    </>)
+    </div>)
 }
 
 function CockatailPage(props) {
@@ -79,7 +82,7 @@ function CockatailPage(props) {
   const classes = useStyles();
 
   return(
-    <div className="container">
+    <div className={`container ${classes.wrapper}`}>
       <div className="row">
         <div className="col">
           <img className={classes.drinkThumb} src={strDrinkThumb} alt="foto-drink" />  

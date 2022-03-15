@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Link } from "react-router-dom";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { LazyLoadImage , LazyLoadComponent} from 'react-lazy-load-image-component';
 import {createUseStyles} from 'react-jss'
 
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -31,9 +31,11 @@ export default function CardContainer(props) {
         
         return(
         <div className="row">
+            <LazyLoadComponent>
             {
                 props.cocktails.map((element, index) => <div className="col-4"  key={index}><CardCocktail cocktail={element} /></div>)
             }
+            </LazyLoadComponent>
         </div>)
     }
 
@@ -59,3 +61,4 @@ function CardCocktail(props) {
         <h2 className={classes.textCocktail}>{strDrink}</h2>
     </Link>)
 }
+

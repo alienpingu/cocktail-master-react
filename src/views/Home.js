@@ -5,6 +5,9 @@ import { CardContainer, LoadingSpinner } from "../Components";
 import { getCocktailsFromSearch, getRandomCocktails } from "../utils";
 
 const useStyles = createUseStyles({
+    wrapper: {
+        marginTop: '3rem'
+    },
     groupedInput: {
         height: '7rem'
     },
@@ -43,7 +46,7 @@ export default function Home(props) {
     }
 
 
-    return(<div id="home" className="container">
+    return(<div id="home" className={`container ${classes.wrapper}`}>
             <h1>Delicius cocktails<br/>for you</h1>
             <p className={`grouped ${classes.groupedInput}`}>
                 <input  

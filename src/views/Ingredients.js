@@ -2,6 +2,13 @@ import React, {useEffect, useState} from "react";
 import { ButtonContainer, LoadingSpinner, CardContainer } from "../Components"
 import { getIngredientsList, getCocktailsFromSearch } from "../utils";
 import { useParams } from "react-router-dom";
+import {createUseStyles} from 'react-jss';
+
+const useStyles = createUseStyles({
+    wrapper: {
+        marginTop: '3rem'
+    },
+  })
 
 export default function Ingredients() {
 
@@ -9,7 +16,8 @@ export default function Ingredients() {
     const [cocktailList, setCocktailsList] = useState();
 
     let {nameIngredient} = useParams();
-
+    const classes = useStyles();
+    
     let clearPage = () => {
         setIngredientList(undefined)
         setCocktailsList(undefined)
@@ -41,7 +49,7 @@ export default function Ingredients() {
 
     
 
-    return(<div id="ingredients" className="container">
+    return(<div id="ingredients" className={`container ${classes.wrapper}`}>
         <h1>Find cocktail from<br/>alcholic 🍸</h1>
         {
             (ingredientList) ? 

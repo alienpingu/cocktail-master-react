@@ -6,42 +6,44 @@ import {createUseStyles} from 'react-jss'
 
 
 
-const useStyles = createUseStyles({
-    navbarContainer: {
-        position: 'fixed',
-        bottom: '0',
-        left: '0',
-        width:'100%',
-        display: 'flex',
-        justifyContent: 'space-around',
-        zIndex: 3,
-        background: '#fefefe',
-        padding: '12px 0',
-    },
-    activeNavLink: {
-        color: '#ff4b1f'
-    },
-    '@media (min-width: 850px)': {
-        navbarContainer: {
-            position: 'fixed',
-            bottom: '50%',
-            top: '40%',
-            left: '0.5rem',
-            width:'6rem',
-            height: '22rem',
-            alignItems: 'center',
-            flexDirection: 'column',
-            borderRadius: '2rem',
-            boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
 
-        }
-      }
 
-  })
+export default function Navbar(props) {
+        const useStyles = createUseStyles({
+            navbarContainer: {
+                position: 'fixed',
+                bottom: '0',
+                left: '0',
+                width:'100%',
+                display: 'flex',
+                justifyContent: 'space-around',
+                zIndex: '2',
+                padding: '12px 0',
+                background: 'var(--bg-color)'
+            },
+            '@media (min-width: 850px)': {
+                navbarContainer: {
+                    position: 'fixed',
+                    bottom: '50%',
+                    top: '40%',
+                    left: '0.5rem',
+                    width:'6rem',
+                    height: '22rem',
+                    alignItems: 'center',
+                    flexDirection: 'column',
+                    borderRadius: '2rem',
+                    boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
+                    background: 'var(--bg-color)'
 
-export default function Navbar() {
+
+        
+                }
+            }
+        
+        })
         const classes = useStyles();
         let location = useLocation();
+        
         return(
         <div id="navbar" className={classes.navbarContainer}>
             <Link to="/"> 
