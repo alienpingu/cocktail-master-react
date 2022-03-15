@@ -2,9 +2,9 @@ import React,{useEffect, useState} from "react";
 import {createUseStyles} from 'react-jss';
 
 import { CardContainer, LoadingSpinner } from "../Components";
-import { getCocktailsFromSearch, getRandomCocktails } from "../utils";
+import { getCocktailsFromSearch, getRandomCocktails, getCocktailByIngredient } from "../utils";
 //Data
-import {ingredientsList} from '../data';
+// import {ingredientsList} from '../data';
 
 const useStyles = createUseStyles({
     wrapper: {
@@ -45,8 +45,11 @@ export default function Home(props) {
 
     let updateCocktail = async function (search) {
         let fromSearch = await getCocktailsFromSearch(search)
-        // let fromIngredient = 
-        // setCocktails(await getCocktailsFromSearch(search))
+        let fromIngredient = await getCocktailByIngredient(search)
+        let cocktailsFromSearch = fromSearch.concat(fromIngredient);
+        cocktailsFromSearch = [...new Set([...fromSearch,...fromIngredient])]
+        console.log(cocktailsFromSearch)
+        setCocktails(cocktailsFromSearch)
     }
 
 
