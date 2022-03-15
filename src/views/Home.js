@@ -42,7 +42,14 @@ export default function Home(props) {
     },[])
 
     let updateCocktail = async function (search) {
-        setCocktails(await getCocktailsFromSearch(search))
+        let fromName = await getCocktailsFromSearch(search)
+        let fromIngredients = await getCocktailsFromSearch(search)
+        let array1 = ['a','b','c']
+        let array2 = ['c','c','d','e'];
+        let array3 = array1.concat(array2);
+        array3 = [...new Set([...array1,...array2])]
+        console.log(array3)
+        // setCocktails()
     }
 
 

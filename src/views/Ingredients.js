@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { ButtonContainer, LoadingSpinner, CardContainer } from "../Components"
-import { getIngredientsList, getCocktailsFromSearch } from "../utils";
+import { getIngredientsList, getCocktailByIngredient } from "../utils";
 import { useParams } from "react-router-dom";
 import {createUseStyles} from 'react-jss';
 
@@ -17,7 +17,7 @@ export default function Ingredients() {
 
     let {nameIngredient} = useParams();
     const classes = useStyles();
-    
+
     let clearPage = () => {
         setIngredientList(undefined)
         setCocktailsList(undefined)
@@ -31,7 +31,7 @@ export default function Ingredients() {
           });
         
         let promise2 = new Promise((resolve, reject) => {
-            resolve(getCocktailsFromSearch(nameIngredient))
+            resolve(getCocktailByIngredient(nameIngredient))
         });
 
         (nameIngredient === undefined) ?
