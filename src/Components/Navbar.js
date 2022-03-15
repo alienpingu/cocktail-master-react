@@ -52,12 +52,6 @@ export default function Navbar(props) {
                     alt="search"
                 />
             </Link>
-            {/* <Link to="/i" >
-                <img 
-                    src={`https://icongr.am/feather/package.svg?size=32&color=${(location.pathname === '/i') ? 'ff4b1f' : '6F7173'}`} 
-                    alt="search"
-                />
-            </Link> */}
             <Link to="/fav">
                 <img 
                     src={`https://icongr.am/feather/heart.svg?size=32&color=${(location.pathname === '/fav') ? 'ff4b1f' : '6F7173'}`} 

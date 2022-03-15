@@ -2,9 +2,10 @@ import React from "react";
 // React router dom 
 import { Routes, Route, Outlet, Link } from "react-router-dom";
 // Views
-import {Home, Cocktail, Ingredients} from './views';
+import {Home, Cocktail} from './views';
 // Components
 import { Navbar, Topbar } from "./Components";
+
 // Styles
 import 'chota';
 
@@ -19,8 +20,6 @@ export default function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/cocktail/:idDrink" element={<Cocktail />} />
-          <Route path="/i" element={<Ingredients />} />
-          <Route path="/i/:nameIngredient" element={<Ingredients />} />
 
           {/* Using path="*"" means "match anything", so this route
                 acts like a catch-all for URLs that we don't have explicit
@@ -54,6 +53,7 @@ function Layout(props) {
     </div>
   );
 }
+
 
 
 function NoMatch() {

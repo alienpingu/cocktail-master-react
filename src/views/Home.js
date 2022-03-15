@@ -3,6 +3,8 @@ import {createUseStyles} from 'react-jss';
 
 import { CardContainer, LoadingSpinner } from "../Components";
 import { getCocktailsFromSearch, getRandomCocktails } from "../utils";
+//Data
+import {ingredientsList} from '../data';
 
 const useStyles = createUseStyles({
     wrapper: {
@@ -42,7 +44,9 @@ export default function Home(props) {
     },[])
 
     let updateCocktail = async function (search) {
-        setCocktails(await getCocktailsFromSearch(search))
+        let fromSearch = await getCocktailsFromSearch(search)
+        // let fromIngredient = 
+        // setCocktails(await getCocktailsFromSearch(search))
     }
 
 

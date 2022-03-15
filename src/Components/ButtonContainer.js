@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 export default function ButtonContainer(props) {
     
     let {ingredientsList} = props;
@@ -9,19 +10,16 @@ export default function ButtonContainer(props) {
             <div className="row">
             {
                 ingredientsList.map((e, i) => {
-                    if (e.strIngredient1.split(' ').length < 2) {
+                    
                         return(
                             <div key={i} className="col-3">
                                 <Link 
                                     className='button is-full-width text-center'
-                                    to={`/i/${e.strIngredient1}`}>
-                                        {e.strIngredient1}
+                                    to={`/i/${e.value}`}>
+                                        {e.label}
                                 </Link>
                             </div>
                         )
-                    } else {
-                        return(null)
-                    }
                 })
             }
             </div>
