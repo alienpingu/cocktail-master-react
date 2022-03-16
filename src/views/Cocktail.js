@@ -7,11 +7,12 @@ import { getCocktailById } from "../utils";
 
 const useStyles = createUseStyles({
   wrapper: {
-    marginTop: '3rem'
+    marginTop: '6rem',
   },
   drinkThumb: {
     borderRadius: '3rem'
-  }
+  },
+
 
 })
 

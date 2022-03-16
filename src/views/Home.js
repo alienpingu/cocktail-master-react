@@ -43,13 +43,18 @@ export default function Home(props) {
 
     },[])
     //From the value of the searchbar find cocktails by name and ingredients, concat without duplicates and render
+    //if there isn't cocktails from ingredient show only result from name
+    //if there isn't cocktails from ingredient and name too, show loading spinner
     let updateCocktail = async function (search) {
         let fromSearch = await getCocktailsFromSearch(search)
         let fromIngredient = await getCocktailByIngredient(search)
-        let cocktailsFromSearch = fromSearch.concat(fromIngredient);
+        let cocktailsFromSearch = [];
         if (fromIngredient === undefined) {
             cocktailsFromSearch = fromSearch
+        } else if(fromIngredient === undefined && fromSearch === undefined) {
+            cocktailsFromSearch = undefined
         } else {
+            cocktailsFromSearch = fromSearch.concat(fromIngredient);
             cocktailsFromSearch = [...new Set([...fromSearch,...fromIngredient])]
         }
         setCocktails(cocktailsFromSearch)
