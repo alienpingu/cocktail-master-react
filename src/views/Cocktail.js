@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import {createUseStyles} from 'react-jss'
 
 import { LoadingSpinner } from "../Components";
-import { getCocktailById } from "../utils";
+import { getCocktailById, addToDatabase } from "../utils";
 
 const useStyles = createUseStyles({
   wrapper: {
@@ -12,6 +12,11 @@ const useStyles = createUseStyles({
   drinkThumb: {
     borderRadius: '3rem'
   },
+  title: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  }
 
 
 })
@@ -41,6 +46,7 @@ export default function Cocktail(props) {
 
 function CockatailPage(props) {
   let {
+    idDrink,
     strDrinkThumb,
     strGlass,
     strDrink,
@@ -90,7 +96,16 @@ function CockatailPage(props) {
           <p>Glass: {strGlass}</p>
         </div>
         <div className="col">
-          <h1>{strDrink}</h1>
+          <h1 className={classes.title}>
+            <span>{strDrink}</span>
+            <img 
+              src="https://icongr.am/feather/heart.svg?size=128&color=currentColor" 
+              alt="heart" 
+              width={'24px'}
+              height={'24px'}
+              onClick={e => addToDatabase({idDrink: idDrink, strDrink: strDrink, strDrinkThumb: strDrinkThumb})}
+            />
+          </h1>
           <p>{strCategory}</p>
           <p>
             {

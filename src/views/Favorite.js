@@ -1,4 +1,7 @@
 import React, {useState, useEffect} from "react";
+
+import { CardContainer, LoadingSpinner } from "../Components";
+
 import {createUseStyles} from 'react-jss'
 
 const useStyles = createUseStyles({
@@ -25,12 +28,8 @@ export default function Favorite() {
 
     return(<div className={classes.wrapper+' container'}>
             <h1>Your unique and <br/> personal list</h1>
-            {
-                (database) ?
-                    database.map((e,i) => <span key={i}>{e}</span>) 
-                    :
-                    'no fav'
-            }
+            {(database) ? <CardContainer cocktails={database} /> : <LoadingSpinner />}
+
 
         </div>)
 }
