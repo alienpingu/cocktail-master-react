@@ -5,7 +5,7 @@ import { Routes, Route, Outlet, Link } from "react-router-dom";
 import {Home, Cocktail} from './views';
 // Components
 import { Navbar, Topbar } from "./Components";
-
+import { AddToHomeScreen } from 'react-pwa-add-to-homescreen';
 // Styles
 import 'chota';
 
@@ -42,6 +42,7 @@ function Layout(props) {
           <Link to="/" className="brand"><img src={Logo} alt="matail" /></Link>
         </div>
       </nav> */}
+      <AddToHomeScreen />
       <Topbar/>
       <Navbar />
       <br />
