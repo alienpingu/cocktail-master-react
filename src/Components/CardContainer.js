@@ -18,10 +18,12 @@ const useStyles = createUseStyles({
     },
     textCocktail: {
         marginTop: '-64px',
-        color: '#fff',
+        color: '#fefefe',
         textAlign: 'center',
         textTransform: 'capitalize',
-        position: 'relative'
+        position: 'relative',
+        fontFamily: "'Lily Script One', cursive",
+        textShadow: '1px 1px 0px #000'
 
     },
 

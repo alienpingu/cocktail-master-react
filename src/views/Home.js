@@ -47,7 +47,11 @@ export default function Home(props) {
         let fromSearch = await getCocktailsFromSearch(search)
         let fromIngredient = await getCocktailByIngredient(search)
         let cocktailsFromSearch = fromSearch.concat(fromIngredient);
-        cocktailsFromSearch = [...new Set([...fromSearch,...fromIngredient])]
+        if (fromIngredient === undefined) {
+            cocktailsFromSearch = fromSearch
+        } else {
+            cocktailsFromSearch = [...new Set([...fromSearch,...fromIngredient])]
+        }
         setCocktails(cocktailsFromSearch)
     }
 
@@ -61,7 +65,10 @@ export default function Home(props) {
                     id="search_home"
                     placeholder="Search"
                     value={search}
-                    onChange={(e) => setSearch(e.target.value)}
+                    onChange={(e) => {
+                        setSearch(e.target.value)
+                        updateCocktail(search)
+                    }}
                     className={classes.searchInput}
                 />
                 <button 
