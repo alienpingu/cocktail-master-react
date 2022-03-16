@@ -79,9 +79,9 @@ export default function Navbar(props) {
                     alt="search"
                 />
             </Link>
-            <Link to="/fav">
+            <Link to="/f">
                 <img 
-                    src={`https://icongr.am/feather/heart.svg?size=32&color=${(location.pathname === '/fav') ? 'ff4b1f' : '6F7173'}`} 
+                    src={`https://icongr.am/feather/heart.svg?size=32&color=${(location.pathname === '/f') ? 'ff4b1f' : '6F7173'}`} 
                     alt="search"
                 />
             </Link>

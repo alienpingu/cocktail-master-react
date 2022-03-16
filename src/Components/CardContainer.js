@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { LazyLoadImage , LazyLoadComponent} from 'react-lazy-load-image-component';
 import {createUseStyles} from 'react-jss'
 
+
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const useStyles = createUseStyles({
@@ -47,7 +48,7 @@ function CardCocktail(props) {
 
     return(
     <Link 
-        to={"/cocktail/"+idDrink} 
+        to={"/c/"+idDrink} 
         className={classes.cardCocktail}
         data-aos="fade-left"
     >
@@ -59,7 +60,6 @@ function CardCocktail(props) {
             effect="blur"
             className={classes.fotoCocktail}
         />
-            
         <h2 className={classes.textCocktail}>{strDrink}</h2>
     </Link>)
 }
