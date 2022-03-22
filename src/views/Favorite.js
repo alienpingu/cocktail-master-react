@@ -27,7 +27,7 @@ export default function Favorite() {
     },[])
 
     return(<div className={classes.wrapper+' container'}>
-            <h1>Your unique and <br/> personal list</h1>
+            {/* <h1>Your unique and <br/> personal list</h1> */}
             {(database) ? <CardContainer cocktails={database} /> : <LoadingSpinner />}
 
 

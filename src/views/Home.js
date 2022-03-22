@@ -8,7 +8,7 @@ import { getCocktailsFromSearch, getRandomCocktails, getCocktailByIngredient } f
 
 const useStyles = createUseStyles({
     wrapper: {
-        marginTop: '3rem'
+        marginTop: '6rem'
     },
     groupedInput: {
         height: '7rem'
@@ -62,7 +62,7 @@ export default function Home(props) {
 
 
     return(<div id="home" className={`container ${classes.wrapper}`}>
-            <h1>Delicius cocktails<br/>for you</h1>
+            {/* <h1>Delicius cocktails<br/>for you</h1> */}
             <p className={`grouped ${classes.groupedInput}`}>
                 <input  
                     type="search"
