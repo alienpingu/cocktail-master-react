@@ -5,3 +5,4 @@ export {default as getIngredientsList} from './getIngredientsList';
 export {default as getCocktailByIngredient} from './getCocktailByIngredient';
 export {default as changeActualTheme} from './changeActualTheme';
 export {default as addToDatabase} from './addToDatabase';
+export {default as checkDatabaseById} from './checkDatabaseById';

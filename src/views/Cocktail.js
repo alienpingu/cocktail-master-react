@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import {createUseStyles} from 'react-jss'
 
 import { LoadingSpinner } from "../Components";
-import { getCocktailById, addToDatabase } from "../utils";
+import { getCocktailById, addToDatabase, checkDatabaseById } from "../utils";
 
 const useStyles = createUseStyles({
   wrapper: {
@@ -24,22 +24,25 @@ const useStyles = createUseStyles({
 export default function Cocktail(props) {
     let {idDrink} = useParams();
     let [cocktailJson, setCocktail] = useState()
-
+    let [favorite, setFavorite] = useState(false)
     useEffect(() => {
         let promise1 = new Promise((resolve, reject) => {
             resolve(getCocktailById(idDrink))
           });
-          
+          let promise2 = new Promise((resolve, reject) => {
+            resolve(checkDatabaseById(idDrink))
+          });
           promise1.then((value) => {
             setCocktail(value)
             // expected output: "Success!"
           });
 
+
     },[idDrink])
     
     return(<div>
       
-      {(cocktailJson) ? <CockatailPage cocktailJson={cocktailJson}/> : <LoadingSpinner />}
+      {(cocktailJson) ? <CockatailPage cocktailJson={cocktailJson} isFavorite={favorite}/> : <LoadingSpinner />}
 
     </div>)
 }
@@ -83,9 +86,8 @@ function CockatailPage(props) {
     strMeasure14,
     strIngredient15,
     strMeasure15,
-
-
   } = props.cocktailJson
+  let {isFavorite} = props
   const classes = useStyles();
 
   return(
@@ -99,10 +101,13 @@ function CockatailPage(props) {
           <h1 className={classes.title}>
             <span>{strDrink}</span>
             <img 
-              src="https://icongr.am/feather/heart.svg?size=128&color=currentColor" 
+              src={(isFavorite) ? 
+                  "https://icongr.am/entypo/heart.svg?size=128&color=currentColor" 
+                  : 
+                  "https://icongr.am/entypo/heart-outlined.svg?size=256&color=currentColor"} 
               alt="heart" 
-              width={'24px'}
-              height={'24px'}
+              width={'36px'}
+              height={'36px'}
               onClick={e => addToDatabase({idDrink: idDrink, strDrink: strDrink, strDrinkThumb: strDrinkThumb})}
             />
           </h1>
@@ -188,7 +193,6 @@ function CockatailPage(props) {
                 <td>{strMeasure15}</td>
               </tr>
             </tbody>
-
           </table>
         </div>  
       </div>
